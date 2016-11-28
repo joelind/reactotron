@@ -1,4 +1,4 @@
-import Reactotron, { trackGlobalErrors } from 'reactotron-react-native'
+import Reactotron, { trackGlobalErrors, openInEditor } from 'reactotron-react-native'
 import tronsauce from 'reactotron-apisauce'
 import { reactotronRedux } from 'reactotron-redux'
 import sagaPlugin from 'reactotron-redux-saga'
@@ -14,6 +14,7 @@ if (__DEV__) {
     .use(trackGlobalErrors({
       veto: frame => frame.fileName.indexOf('/node_modules/react-native/') >= 0
     }))
+    .use(openInEditor())
     .use(sagaPlugin())
     .connect()
 
